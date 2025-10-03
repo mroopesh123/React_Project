@@ -1,0 +1,136 @@
+[
+  {
+    "incident_id": "INC-729348",
+    "title": "Laptop hardware failure",
+    "status": "In Progress",
+    "priority": "Critical",
+    "severity": "4 - Minor",
+    "category": "Database",
+    "subcategory": "VPN",
+    "description": "Issue reported: laptop hardware failure. User unable to proceed with normal work.",
+    "impact": "Operations affected until resolved.",
+    "created_at": "2025-09-06T01:09:00Z",
+    "updated_at": "2025-09-21T00:11:00Z",
+    "closed_at": "2025-09-21T00:11:00Z",
+    "assigned_to": {
+      "user_id": "U-98353",
+      "name": "David Miller",
+      "team": "Help Desk"
+    },
+    "reporter": {
+      "user_id": "U-17753",
+      "name": "Laura Wilson",
+      "email": "laura.wilson@test.com"
+    },
+    "closure_notes": "Issue resolved by assigned technician.",
+    "related_assets": [
+      {
+        "asset_id": "AST-9565",
+        "name": "Laura Wilson Laptop"
+      }
+    ],
+    "timeline": [
+      {
+        "timestamp": "2025-09-06T01:09:00Z",
+        "event": "New incident created by end-user via service portal.",
+        "user": "Laura Wilson"
+      },
+      {
+        "timestamp": "2025-09-21T00:11:00Z",
+        "event": "Incident updated by assigned technician.",
+        "user": "David Miller"
+      },
+      {
+        "timestamp": "2025-09-21T00:11:00Z",
+        "event": "Incident closed. Resolution notes added.",
+        "user": "David Miller"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-865967",
+    "title": "VPN connectivity issue",
+    "status": "In Progress",
+    "priority": "High",
+    "severity": "2 - High",
+    "category": "Database",
+    "subcategory": "Email",
+    "description": "Issue reported: vpn connectivity issue. User unable to proceed with normal work.",
+    "impact": "Operations affected until resolved.",
+    "created_at": "2025-09-09T16:48:00Z",
+    "updated_at": "2025-09-12T06:55:00Z",
+    "closed_at": null,
+    "assigned_to": {
+      "user_id": "U-80500",
+      "name": "Emily Johnson",
+      "team": "Help Desk"
+    },
+    "reporter": {
+      "user_id": "U-97938",
+      "name": "John Smith",
+      "email": "john.smith@test.com"
+    },
+    "closure_notes": "",
+    "related_assets": [
+      {
+        "asset_id": "AST-8847",
+        "name": "John Smith Router"
+      }
+    ],
+    "timeline": [
+      {
+        "timestamp": "2025-09-09T16:48:00Z",
+        "event": "New incident created by end-user via service portal.",
+        "user": "John Smith"
+      },
+      {
+        "timestamp": "2025-09-12T06:55:00Z",
+        "event": "Incident updated by assigned technician.",
+        "user": "Emily Johnson"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-312969",
+    "title": "Password reset required",
+    "status": "In Progress",
+    "priority": "High",
+    "severity": "4 - Minor",
+    "category": "Hardware",
+    "subcategory": "Server",
+    "description": "Issue reported: password reset required. User unable to proceed with normal work.",
+    "impact": "Operations affected until resolved.",
+    "created_at": "2025-09-19T18:34:00Z",
+    "updated_at": "2025-09-20T10:24:00Z",
+    "closed_at": null,
+    "assigned_to": {
+      "user_id": "U-47200",
+      "name": "Michael Brown",
+      "team": "Network Ops"
+    },
+    "reporter": {
+      "user_id": "U-21844",
+      "name": "Emily Johnson",
+      "email": "emily.johnson@example.com"
+    },
+    "closure_notes": "",
+    "related_assets": [
+      {
+        "asset_id": "AST-3206",
+        "name": "Emily Johnson Monitor"
+      }
+    ],
+    "timeline": [
+      {
+        "timestamp": "2025-09-19T18:34:00Z",
+        "event": "New incident created by end-user via service portal.",
+        "user": "Emily Johnson"
+      },
+      {
+        "timestamp": "2025-09-20T10:24:00Z",
+        "event": "Incident updated by assigned technician.",
+        "user": "Michael Brown"
+      }
+    ]
+  }
+]
