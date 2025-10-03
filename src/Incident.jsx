@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { DarkModeContext } from "./DarkModeContext";
 import styles from "./Incident.module.css";
+import { Button } from '@mui/material';
 
 function Incident({ incident, onDelete }) {
   const { darkMode } = useContext(DarkModeContext);
@@ -11,7 +12,13 @@ function Incident({ incident, onDelete }) {
         <li>Title: {incident.title}</li>
         <li>Status: {incident.status}</li>
         <li>Priority: {incident.priority}</li>
-        <button onClick={onDelete}>Delete</button>
+        <Button sx={{
+          color: 'black',
+          backgroundColor: 'purple',
+          margin: '20px 5px 0px 50px',
+          borderRadius:'20px'
+          
+        }} varient="contained" color="error" onClick={onDelete}>Delete</Button>
       </ul>
     </div>
   );

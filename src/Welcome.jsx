@@ -1,21 +1,29 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Welcome() {
   const [joke, setJoke] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
-    const signal = controller.signal;
+    const signal=controller.signal;
 
     async function getJoke() {
-      const res = await fetch("https://official-joke-api.appspot.com/random_joke", { signal });
-      const data = await res.json();
-      setJoke(`${data.setup} - ${data.punchline}`);
+      try {
+        const res = await axios.get(
+          "https://official-joke-api.appspot.com/random_joke",
+          { signal}
+        );
+        setJoke(`${res.data.setup} - ${res.data.punchline}`);
+      } catch (error) {
+
+          console.log(error);
+      }
     }
 
     getJoke();
 
-    return () => controller.abort();
+    return () => controller.abort(); // cleanup on unmount
   }, []);
 
   return (

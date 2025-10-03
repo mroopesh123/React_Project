@@ -1,4 +1,5 @@
-import { useReducer, useState, useContext } from "react";
+import { useReducer, useContext } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import styles from "./style.module.css";
 import IncidentList from "./IncidentList";
 import Welcome from "./Welcome";
@@ -20,7 +21,6 @@ function reducer(state, action) {
 function Home() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [incidents, dispatch] = useReducer(reducer, data);
-  const [pageContent, setPageContent] = useState("Home");
 
   const user = { prefix: "Mr.", firstName: "Roopesh", lastName: "Moopuri" };
   const date = new Date();
@@ -36,17 +36,12 @@ function Home() {
         </span>
         <nav>
           <ul className={styles.list}>
-            {["Home", "Incidents"].map(page => (
-              <li key={page} className={styles.listItem}>
-                <a
-                  href="#"
-                  className={styles.link}
-                  onClick={() => setPageContent(page)}
-                >
-                  {page}
-                </a>
-              </li>
-            ))}
+            <li className={styles.listItem}>
+              <Link to="/" className={styles.link}>Home</Link>
+            </li>
+            <li className={styles.listItem}>
+              <Link to="/incidents" className={styles.link}>Incidents</Link>
+            </li>
             <li className={styles.listItem}>
               <a href="#" className={styles.link} onClick={toggleDarkMode}>
                 {darkMode ? "Light Mode" : "Dark Mode"}
@@ -57,15 +52,19 @@ function Home() {
       </header>
 
       <main className={styles.content}>
-        {pageContent === "Home" ? (
-          <Welcome />
-        ) : (
-          <IncidentList
-            incidents={incidents}
-            onDelete={id => dispatch({ type: "DELETE", payload: id })}
-            onAdd={incident => dispatch({ type: "ADD", payload: incident })}
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route
+            path="/incidents"
+            element={
+              <IncidentList
+                incidents={incidents}
+                onDelete={id => dispatch({ type: "DELETE", payload: id })}
+                onAdd={incident => dispatch({ type: "ADD", payload: incident })}
+              />
+            }
           />
-        )}
+        </Routes>
       </main>
     </div>
   );

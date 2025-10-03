@@ -16,7 +16,7 @@
   margin-bottom: 5px;
 }
 
-.box button {
+/* .box button {
   padding: 4px 8px;
   border: none;
   border-radius: 4px;
@@ -24,18 +24,18 @@
   background-color: #f44336;
   color: #fff;
   transition: background-color 0.3s ease;
-}
+} */
 
-.box button:hover {
+/* .box button:hover {
   background-color: #d32f2f;
-}
+} */
 
 /* Dark mode for incident box */
-.dark .box {
+/* .dark .box {
   background-color: #1e1e1e;
   color: #fff;
-}
+} */
 
-.dark .box button {
+/* .dark .box button {
   background-color: #d32f2f;
-}
+} */
