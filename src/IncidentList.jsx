@@ -25,42 +25,71 @@ function IncidentList({ incidents, onDelete, onAdd }) {
   };
 
   return (
+    
     <div className={darkMode ? styles.dark : ""}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        {["incident_id", "title"].map(field => (
-          <label key={field}>
-            {field.charAt(0).toUpperCase() + field.slice(1)}
-            <input
-              type="text"
-              name={field}
-              value={newIncident[field]}
-              onChange={handleChange}
-              className={styles.input}
-              required
-            />
-          </label>
-        ))}
+      <div className={styles.divv}>
+        <h4>
+  <form onSubmit={handleSubmit} className={styles.form}>
+    
+    <label>
+      Incident Id&nbsp; &nbsp;
+      <input
+        type="text"
+        name="incident_id"
+        value={newIncident.incident_id}
+        onChange={handleChange}
+        className={styles.input}
+        required
+      />
+    </label>
 
-        <label>
-          Priority
-          <select name="priority" value={newIncident.priority} onChange={handleChange} className={styles.select}>
-            {["Low", "Medium", "High", "Critical"].map(p => (
-              <option key={p} value={p}>{p}</option>
-            ))}
-          </select>
-        </label>
+    <label>
+      Title&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+      <input
+        type="text"
+        name="title"
+        value={newIncident.title}
+        onChange={handleChange}
+        className={styles.input}
+        required
+      />
+    </label>
 
-        <label>
-          Status
-          <select name="status" value={newIncident.status} onChange={handleChange} className={styles.select}>
-            {["open", "closed"].map(s => (
-              <option key={s} value={s}>{s}</option>
-            ))}
-          </select>
-        </label>
+    <label>
+      Priority&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+      <select
+        name="priority"
+        value={newIncident.priority}
+        onChange={handleChange}
+        className={styles.select}
+      >
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Critical">Critical</option>
+      </select>
+    </label>
 
-        <button type="submit" className={styles.submitBtn}>Add Incident</button>
-      </form>
+    <label>
+      Status&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+      <select
+        name="status"
+        value={newIncident.status}
+        onChange={handleChange}
+        className={styles.select}
+      >
+        <option value="open">Open</option>
+        <option value="closed">Closed</option>
+      </select>
+    </label>
+
+    <button type="submit" id={styles.btn} className={styles.submitBtn}>
+      Add
+    </button>
+  </form>
+  </h4>
+</div>
+
 
       <div className={styles.incidentList}>
         {incidents.map(incident => (
@@ -72,6 +101,7 @@ function IncidentList({ incidents, onDelete, onAdd }) {
         ))}
       </div>
     </div>
+    
   );
 }
 
