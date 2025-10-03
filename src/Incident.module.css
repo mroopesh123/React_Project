@@ -1,10 +1,10 @@
 .box {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #e0e0e0;
-  margin-top: 20px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 20px 0 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .box ul {

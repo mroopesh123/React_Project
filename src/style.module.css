@@ -139,17 +139,20 @@ body {
 .delete-btn:hover, .box button:hover {
   background-color: #d32f2f;
 }
-
-.divv
-{
-  margin-top:0px;
+.divv {
+  margin-top: 0px;
   justify-content: center;
   display: flex;
-  background-color: #ecdede;  
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   margin-left: 40px;
   margin-right: 50px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+
 .input{
   size:10px;
   font-size: 20px;
