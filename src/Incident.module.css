@@ -16,27 +16,6 @@
 .box li {
   margin-bottom: 5px;
 }
-
-/* .box button {
-  padding: 4px 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #f44336;
-  color: #fff;
-  transition: background-color 0.3s ease;
-} */
-
-/* .box button:hover {
-  background-color: #d32f2f;
-} */
-
-/* Dark mode for incident box */
-/* .dark .box {
-  background-color: #1e1e1e;
-  color: #fff;
-} */
-
-/* .dark .box button {
-  background-color: #d32f2f;
-} */
+.box:hover{
+  background-color: rgb(93, 214, 214);
+}

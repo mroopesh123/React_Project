@@ -12,11 +12,15 @@ function Incident({ incident, onDelete }) {
         <li>Title: {incident.title}</li>
         <li>Status: {incident.status}</li>
         <li>Priority: {incident.priority}</li>
-        <Button sx={{
+        <Button  sx={{
           color: 'black',
           backgroundColor: 'purple',
           margin: '20px 5px 0px 50px',
-          borderRadius:'20px'
+          borderRadius:'20px',
+          '&:hover': {
+      backgroundColor: 'red', // color on hover
+      color: 'white',               // text color on hover
+    }
           
         }} varient="contained" color="error" onClick={onDelete}>Delete</Button>
       </ul>
