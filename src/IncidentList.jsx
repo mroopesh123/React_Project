@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
+import { TextField, Button, Select, MenuItem, FormControl, InputLabel, Box, Paper, Typography, Grid } from "@mui/material";
 import Incident from "./Incident";
-import styles from "./style.module.css";
 import { DarkModeContext } from "./DarkModeContext";
 
-function IncidentList({ incidents, onDelete, onAdd }) {
+function IncidentList({ incidents, onDelete, onAdd, onEdit }) {
   const { darkMode } = useContext(DarkModeContext);
 
   const [newIncident, setNewIncident] = useState({
@@ -25,83 +25,90 @@ function IncidentList({ incidents, onDelete, onAdd }) {
   };
 
   return (
-    
-    <div className={darkMode ? styles.dark : ""}>
-      <div className={styles.divv}>
-        <h4>
-  <form onSubmit={handleSubmit} className={styles.form}>
-    
-    <label>
-      Incident Id&nbsp; &nbsp;
-      <input
-        type="text"
-        name="incident_id"
-        value={newIncident.incident_id}
-        onChange={handleChange}
-        className={styles.input}
-        required
-      />
-    </label>
+    <Box sx={{ p: 3, minHeight: "100vh" }}>
 
-    <label>
-      Title&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-      <input
-        type="text"
-        name="title"
-        value={newIncident.title}
-        onChange={handleChange}
-        className={styles.input}
-        required
-      />
-    </label>
-
-    <label>
-      Priority&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-      <select
-        name="priority"
-        value={newIncident.priority}
-        onChange={handleChange}
-        className={styles.select}
+      {/* Add Incident Form */}
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          maxWidth: 500,     // medium width
+          margin: "0 auto",  // center horizontally
+          display: "grid",
+          gap: 2,
+          mb: 4
+        }}
       >
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-        <option value="Critical">Critical</option>
-      </select>
-    </label>
+        <Typography variant="h6" gutterBottom>
+          Add New Incident
+        </Typography>
 
-    <label>
-      Status&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
-      <select
-        name="status"
-        value={newIncident.status}
-        onChange={handleChange}
-        className={styles.select}
-      >
-        <option value="open">Open</option>
-        <option value="closed">Closed</option>
-      </select>
-    </label>
+        <TextField
+          label="Incident ID"
+          name="incident_id"
+          value={newIncident.incident_id}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
 
-    <button type="submit" id={styles.btn} className={styles.submitBtn}>
-      Add
-    </button>
-  </form>
-  </h4>
-</div>
+        <TextField
+          label="Title"
+          name="title"
+          value={newIncident.title}
+          onChange={handleChange}
+          required
+          variant="outlined"
+          fullWidth
+        />
 
+        <FormControl fullWidth>
+          <InputLabel>Priority</InputLabel>
+          <Select
+            name="priority"
+            value={newIncident.priority}
+            onChange={handleChange}
+            label="Priority"
+          >
+            <MenuItem value="Low">Low</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="High">High</MenuItem>
+            <MenuItem value="Critical">Critical</MenuItem>
+          </Select>
+        </FormControl>
 
-      <div className={styles.incidentList}>
+        <FormControl fullWidth>
+          <InputLabel>Status</InputLabel>
+          <Select
+            name="status"
+            value={newIncident.status}
+            onChange={handleChange}
+            label="Status"
+          >
+            <MenuItem value="open">Open</MenuItem>
+            <MenuItem value="closed">Closed</MenuItem>
+          </Select>
+        </FormControl>
+
+        <Button type="submit" variant="contained" color="primary">
+          Add
+        </Button>
+      </Box>
+
+      {/* Incident List */}
+      <Grid container spacing={2}>
         {incidents.map(incident => (
-          <Incident
-            key={incident.incident_id}
-            incident={incident}
-            onDelete={() => onDelete(incident.incident_id)}
-          />
+          <Grid item xs={12} sm={6} md={4} key={incident.incident_id}>
+            <Incident
+              incident={incident}
+              onDelete={() => onDelete(incident.incident_id)}
+              onEdit={onEdit}
+            />
+          </Grid>
         ))}
-      </div>
-    </div>
-    
+      </Grid>
+    </Box>
   );
 }
 
